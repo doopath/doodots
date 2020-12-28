@@ -1,0 +1,2 @@
+conky -c /home/doopath/.config/conky/AP-Weather-Red.conkyrc & sleep 1s
+conky -c /home/doopath/.config/conky/AUR-Concise-Inf-Cyan.conkyrc & sleep 1s

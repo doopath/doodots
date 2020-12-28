@@ -1,0 +1,120 @@
+snippet !
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="utf-8" />
+	<title>${1:Document}</title>
+	<link rel="stylesheet" href="${2:css/main.css}" type="text/css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	</head>
+
+	<body>
+		<div class="container">
+			${4}
+		</div>
+		<script src="${3:js/script.js}"></script>
+	</body>
+</html>
+endsnippet
+
+snippet zerostyle
+// Zeroing styles
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+article > * + * {
+  margin-top: 1em;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+endsnippet
+
+snippet kf
+@keyframes ${1:name} {
+	0% {
+		${2}
+	}
+	100% {
+		${3}
+	}
+}
+endsnippet
+
+snippet pfun
+${1:public} function ${2:funcName} (${3:$arg}) ${5://description}
+{
+	${4://code...}
+}
+
+
+endsnippet
+
+snippet jfun
+${1:async} function ${2:funcName} (${3:arg}) ${5://description} {
+	${4://code...}
+}
+
+
+endsnippet
