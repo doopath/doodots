@@ -96,7 +96,7 @@ super + m
 
 #Termite
 super + Return
-    konsole
+    alacritty
 
 #Xkill
 super + Escape
