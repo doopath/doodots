@@ -1,13 +1,11 @@
-""" Doopath config for neovim :>
+""" Doovim configuration :>
 " Installed in my system vim takes 600-1500MB RAM,
-" so if you want do decrease this value you can uninstall 
-" some of plugins or you lighter autocompleter (like deoplite),
+" so if you want do decrease this value you could uninstall 
+" some of plugins or use lighter autocompleter (like deoplite);
 " disable it or even unintall (if you like light vim setup).
-" I use this configuration because it very comfy for me and
-" helps me in my dev cases.
 
-" " If you hate vim-plug or smth like this, you can switch it 
-" to another, but I use this one
+" " If you hate vim-plug or smth like this, you can switch
+" to another one, but I use it.
 " If you want to read more about some plugin open 
 " https://github.com/<plugin path>
 call plug#begin('~/.vim/plugged')
@@ -16,7 +14,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " Awesome asynchronous linter
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 
 " Everyone know this
 Plug 'mattn/emmet-vim'
@@ -29,9 +27,9 @@ Plug 'easymotion/vim-easymotion'
 
 " Status bar plugins ==>
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline-themes'
 
-" Very usable things ==>
+" Very useful things ==>
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'preservim/nerdcommenter'
@@ -42,12 +40,10 @@ Plug 'airblade/vim-gitgutter'
 " Apprearance plugins ==>
 " Colorschemes
 Plug 'arcticicestudio/nord-vim'
-Plug 'morhetz/gruvbox'
-Plug 'drewtempelmeyer/palenight.vim'
-Plug 'joshdick/onedark.vim'
 Plug 'doopath/doobox'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'ulwlu/elly.vim'
+Plug 'joshdick/onedark.vim'
 
 " Transparent vim
 Plug 'kjwon15/vim-transparent'
@@ -61,13 +57,12 @@ Plug 'sainnhe/edge'
 Plug 'sainnhe/sonokai'
 
 " IDE Feautures ==>
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocompletion
-Plug 'SirVer/ultisnips' " Powerfoul snippets
-Plug 'honza/vim-snippets' " Also, makes your exp more better
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " Conqueror Of Completion
+Plug 'SirVer/ultisnips' " Powerful snippets
+Plug 'honza/vim-snippets' " Also, makes your exp better
 
 " Live server inside the code-editor like VSCode live-server
-Plug 'turbio/bracey.vim'
-
+" Plug 'turbio/bracey.vim'
 call plug#end() 
 
 " Appearance settings
@@ -75,9 +70,9 @@ syntax on
 highlight Normal ctermbg=NONE
 set termguicolors
 
-colorscheme doobox
-" Available themes: nord, gruvbox, dracula, forest-night, edge, sonokai
-" ---: vim-material, onedark, elly
+colorscheme onedark
+" Available themes: nord, dracula, onedark, doobox
+" Sainnhe themes : edge, forest-night, sonokai
 
 " Make status line transparent (yes, yes, yes...)
 set laststatus=2
@@ -85,21 +80,19 @@ hi statusline guibg=#FFFFFFFF guifg=#D8DEE9
 
 " Make transparent background
 hi Normal guibg=NONE ctermbg=NONE
+" Also, if you want to make you terminal background
+" transparent you need to set it in you terminal configuration
+" If you use konsole: 
+" Right click -> Edit Current Profile -> Appearence -> Edit -> 
+" -> Background Transparency
 
 " Edge-colorscheme settings
 let g:edge_style = 'neon' " neon/aura/light/dark
 let g:edge_enable_italic = 1 " Enable italic comments
 
-" Doome-colorscheme settings
-let g:doome_enable_italic = 1 " Enable italic comments
-
-" Gruvbox colorscheme settings
-let g:gruvbox_bold = 1
-let g:gruvbox_underline = 1
-let g:gruvbox_contrast_light = "medium"
-
-" GUI
-set guifont=Inconsolata:h15:w5:b " 11 is pretty fine
+" Font: You need to install Nerd-Fonts ->
+" (https://github.com/ryanoasis/nerd-fonts)
+set guifont=Hasklig\ Semibold:h15:w5:b "
 
 " Some scary things
 filetype plugin on
@@ -171,6 +164,12 @@ map <silent> <C-h> :call WinMove('h')<CR>
 map <silent> <C-j> :call WinMove('j')<CR>
 map <silent> <C-k> :call WinMove('k')<CR>
 map <silent> <C-l> :call WinMove('l')<CR>
+
+" Resize split windows
+map <silent> <C-p> :vertical resize +5<CR>
+map <silent> <C-u> :vertical resize -5<CR>
+map <silent> <C-o> :resize +5<CR>
+map <silent> <C-i> :resize -5<CR>
 
 " This one let you move between splited windows and create these
 function! WinMove(key)

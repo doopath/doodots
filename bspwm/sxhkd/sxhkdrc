@@ -12,7 +12,7 @@ super + F1
 
 # Pycharm
 super + F2
-	pycharm
+	sh /opt/pycharm-community-2020.3.2/bin/pycharm.sh
 
 # Telegram
 super + F3
@@ -96,7 +96,7 @@ super + m
 
 #Termite
 super + Return
-    alacritty
+    konsole
 
 #Xkill
 super + Escape
@@ -256,7 +256,7 @@ Print
 
 #screeenshooter
 ctrl + Print
-     xfce4-screenshooter
+     flameshot gui
 
 #Gnome-Screenshot
 ctrl + shift + Print

@@ -19,8 +19,7 @@ $HOME/.config/polybar/launch.sh &
 #setxkbmap -layout be
 
 #Some ways to set your wallpaper besides variety or nitrogen
-#feh --bg-scale ~/.config/bspwm/wall.png &
-feh --bg-fill /home/doopath/Files/img/LinuxPrettyCoolWall.png &
+feh --bg-fill /home/doopath/Files/img/PythonWall.png &
 #feh --randomize --bg-fill ~/Képek/*
 #feh --randomize --bg-fill ~/Dropbox/Apps/Desktoppr/*
 
@@ -45,17 +44,7 @@ run pamac-tray &
 run xfce4-power-manager &
 numlockx on &
 blueberry-tray &
-picom --experimental-backends --config $HOME/.config/bspwm/picom.conf &
+DRI_PRIME=0 picom --experimental-backends --config $HOME/.config/bspwm/picom.conf &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
 run volumeicon &
-#nitrogen --restore &
-#run caffeine &
-#run vivaldi-stable &
-#run firefox &
-#run thunar &
-#run dropbox &
-#run insync start &
-#run discord &
-#run spotify &
-#run atom &

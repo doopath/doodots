@@ -1,5 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =2
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/home/doopath/.vim/plugged'
+let g:netrw_dirhist_4='/home/doopath/Files/coderpool/Python/doondler'
+let g:netrw_dirhist_3='/home/doopath/MadeInHell/alacritty-0.6.0/alacritty'
 let g:netrw_dirhist_2='/home/doopath/.config/bspwm/sxhkd'
 let g:netrw_dirhist_1='/home/doopath/.config/bspwm'
 let g:netrw_dirhist_0='/home/doopath/.vim/plugged/doome/colors'
@@ -7,6 +10,3 @@ let g:netrw_dirhist_9='/home/doopath/.vim/plugged/sonokai/autoload/airline/theme
 let g:netrw_dirhist_8='/home/doopath/.vim/plugged/sonokai/autoload/airline'
 let g:netrw_dirhist_7='/home/doopath/.vim/plugged/onedark.vim/autoload/airline'
 let g:netrw_dirhist_6='/home/doopath/Files/coderpool/Python/doondler/build/doondler'
-let g:netrw_dirhist_5='/home/doopath/.config/ncmpcpp'
-let g:netrw_dirhist_4='/home/doopath/Files/coderpool/Python/doobuilder/default'
-let g:netrw_dirhist_3='/home/doopath/.config/bspwm/sxhkd'

@@ -1,0 +1,7 @@
+/** Basic config file **/
+
+configuration {
+  show-icons:         true;
+  icon-theme:         "candy-icons";
+}
+@import "/usr/share/rofi/themes/gruvbox-dark-soft.rasi"
