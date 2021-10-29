@@ -1,0 +1,11 @@
+#! /usr/bin/bash
+
+# Set keyboard layouts: US, RU.
+setxkbmap -layout us,ru -model pc104 
+
+# Set switching key combination (Alt+Shift)
+setxkbmap -option 'grp:alt_shift_toggle'
+
+# Remap CapsLock and Escape.
+# CapsLock becomes Escape, and Escape becomes CapsLock.
+setxkbmap -option caps:swapescape
