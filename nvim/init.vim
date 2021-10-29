@@ -1,11 +1,16 @@
-""" Doovim configuration :>
-" Installed in my system vim takes 600-1500MB RAM,
-" so if you want do decrease this value you could uninstall 
-" some of plugins or use lighter autocompleter (like deoplite);
-" disable it or even unintall (if you like light vim setup).
 
-" " If you hate vim-plug or smth like this, you can switch
-" to another one, but I use it.
+
+" # Doopath's neovim configuration file :>
+" ################################## EDITOR SETTINGS ##################################
+" Installed in my system vim takes 600-1500MB RAM,
+" so if you want do decrease this value you can uninstall 
+" some of plugins or you lighter autocompleter (like deoplite),
+" disable it or even uninstall (if you like light vim setup).
+" I use this configuration because it very comfy for me and
+" helps me in my dev cases.
+
+" " If you hate vim-plug or something like this, you can switch it 
+" to another, but I use this one
 " If you want to read more about some plugin open 
 " https://github.com/<plugin path>
 call plug#begin('~/.vim/plugged')
@@ -14,7 +19,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " Awesome asynchronous linter
-" Plug 'dense-analysis/ale'
+Plug 'dense-analysis/ale'
 
 " Everyone know this
 Plug 'mattn/emmet-vim'
@@ -27,18 +32,26 @@ Plug 'easymotion/vim-easymotion'
 
 " Status bar plugins ==>
 Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
 
 " Very useful things ==>
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'preservim/nerdcommenter'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" CSharp and FSharp support
+Plug 'OmniSharp/omnisharp-vim'
+Plug 'ionide/Ionide-vim', { 'do':  'make fsautocomplete' }
+
+" Haskell and Cabal support
+Plug 'neovimhaskell/haskell-vim'
 
 " Git plugin for vim
 Plug 'airblade/vim-gitgutter'
 
-" Apprearance plugins ==>
-" Colorschemes
+" Appearance plugins ==>
+" Color schemes
 Plug 'arcticicestudio/nord-vim'
 Plug 'doopath/doobox'
 Plug 'dracula/vim', { 'as': 'dracula' }
@@ -62,7 +75,7 @@ Plug 'SirVer/ultisnips' " Powerful snippets
 Plug 'honza/vim-snippets' " Also, makes your exp better
 
 " Live server inside the code-editor like VSCode live-server
-" Plug 'turbio/bracey.vim'
+Plug 'turbio/bracey.vim'
 call plug#end() 
 
 " Appearance settings
@@ -83,10 +96,10 @@ hi Normal guibg=NONE ctermbg=NONE
 " Also, if you want to make you terminal background
 " transparent you need to set it in you terminal configuration
 " If you use konsole: 
-" Right click -> Edit Current Profile -> Appearence -> Edit -> 
+" Right click -> Edit Current Profile -> Appearance -> Edit -> 
 " -> Background Transparency
 
-" Edge-colorscheme settings
+" Edge color scheme settings
 let g:edge_style = 'neon' " neon/aura/light/dark
 let g:edge_enable_italic = 1 " Enable italic comments
 
@@ -96,13 +109,14 @@ set guifont=Hasklig\ Semibold:h15:w5:b "
 
 " Some scary things
 filetype plugin on
-set autoindent " Set autoindention then you go inside a function or smth like this
+" set spell spelllang=en_us " Enable spell check
+set autoindent " Set autoindention then you go inside a function or something like this
 set clipboard+=unnamedplus " Enable clipboard (if you compiled you vim with it)
 set guioptions+=a " Ability to change gui things
-set softtabstop=2 " Set tabs with two spaces
-set linespace=2
-set tabstop=2
-set shiftwidth=2
+set softtabstop=4 " Set tabs with two spaces
+set linespace=4
+set tabstop=4
+set shiftwidth=4
 set t_Co=256 
 set number " Set line number (nonumber/number/relativenumber)
 set expandtab " Replace tabs to spaces (too helpful for lans like python)
@@ -144,7 +158,6 @@ map <Leader> <Plug>(easymotion-prefix)
 " Buffers maps
 " You can switch between buffers by comma + buffer number
 nnoremap <Leader>l :ls<CR>
-nnoremap <Leader>b :bp<CR>
 nnoremap <Leader>f :bn<CR>
 nnoremap <Leader>g :e#<CR>
 nnoremap <Leader>1 :1b<CR>
@@ -158,6 +171,9 @@ nnoremap <Leader>8 :8b<CR>
 nnoremap <Leader>9 :9b<CR>
 nnoremap <Leader>0 :10b<CR>
 
+" FZF settings
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>c :Files<CR>
 
 " Mappings to move between plited windows by WinMove function
 map <silent> <C-h> :call WinMove('h')<CR>
@@ -185,7 +201,7 @@ function! WinMove(key)
   endif
 endfunction
 
-" NerdCommenter configuration
+" ################################## NerdCommenter configuration ##################################
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 
@@ -211,7 +227,7 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1
 
 
-" COC configuration
+" ################################## COC.NVIM configuration ##################################
 " TextEdit might fail if hidden is not set.
 set hidden
 
@@ -377,3 +393,78 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+
+
+" ################################## OMNISHARP SETTINGS ##################################
+" See https://github.com/OmniSharp/omnisharp-vim for more information
+
+let g:OmniSharp_selector_ui = 'fzf'
+let g:OmniSharp_selector_findusages = 'fzf'
+
+let g:ale_linters = { 'cs': ['OmniSharp'] }
+
+" Use the vim-plug plugin manager: https://github.com/junegunn/vim-plug
+" Remember to run :PlugInstall when loading this vimrc for the first time, so
+" vim-plug downloads the plugins listed.
+" Don't autoselect first omnicomplete option, show options even if there is only
+" one (so the preview documentation is accessible). Remove 'preview', 'popup'
+" and 'popuphidden' if you don't want to see any documentation whatsoever.
+" Note that neovim does not support `popuphidden` or `popup` yet:
+" https://github.com/neovim/neovim/issues/10996
+if has('patch-8.1.1880')
+  set completeopt=longest,menuone,popuphidden
+  " Highlight the completion documentation popup background/foreground the same as
+  " the completion menu itself, for better readability with highlighted
+  " documentation.
+  set completepopup=highlight:Pmenu,border:off
+else
+  set completeopt=longest,menuone,preview
+  " Set desired preview window height for viewing documentation.
+  set previewheight=5
+endif
+
+" Tell ALE to use OmniSharp for linting C# files, and no other linters.
+let g:ale_linters = { 'cs': ['OmniSharp'] }
+
+augroup omnisharp_commands
+  autocmd!
+
+  " Show type information automatically when the cursor stops moving.
+  " Note that the type is echoed to the Vim command line, and will overwrite
+  " any other messages in this space including e.g. ALE linting messages.
+  autocmd CursorHold *.cs OmniSharpTypeLookup
+
+  " The following commands are contextual, based on the cursor position.
+  autocmd FileType cs nmap <silent> <buffer> gd <Plug>(omnisharp_go_to_definition)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>osfu <Plug>(omnisharp_find_usages)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>osfi <Plug>(omnisharp_find_implementations)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>ospd <Plug>(omnisharp_preview_definition)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>ospi <Plug>(omnisharp_preview_implementations)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>ost <Plug>(omnisharp_type_lookup)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>osd <Plug>(omnisharp_documentation)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>osfs <Plug>(omnisharp_find_symbol)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>osfx <Plug>(omnisharp_fix_usings)
+  autocmd FileType cs nmap <silent> <buffer> <C-\> <Plug>(omnisharp_signature_help)
+  autocmd FileType cs imap <silent> <buffer> <C-\> <Plug>(omnisharp_signature_help)
+
+  " Navigate up and down by method/property/field
+  autocmd FileType cs nmap <silent> <buffer> [[ <Plug>(omnisharp_navigate_up)
+  autocmd FileType cs nmap <silent> <buffer> ]] <Plug>(omnisharp_navigate_down)
+  " Find all code errors/warnings for the current solution and populate the quickfix window
+  autocmd FileType cs nmap <silent> <buffer> <Leader>osgcc <Plug>(omnisharp_global_code_check)
+  " Contextual code actions (uses fzf, vim-clap, CtrlP or unite.vim selector when available)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>osca <Plug>(omnisharp_code_actions)
+  autocmd FileType cs xmap <silent> <buffer> <Leader>osca <Plug>(omnisharp_code_actions)
+  " Repeat the last code action performed (does not use a selector)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>os. <Plug>(omnisharp_code_action_repeat)
+  autocmd FileType cs xmap <silent> <buffer> <Leader>os. <Plug>(omnisharp_code_action_repeat)
+
+  autocmd FileType cs nmap <silent> <buffer> <Leader>os= <Plug>(omnisharp_code_format)
+
+  autocmd FileType cs nmap <silent> <buffer> <Leader>osnm <Plug>(omnisharp_rename)
+
+  autocmd FileType cs nmap <silent> <buffer> <Leader>osre <Plug>(omnisharp_restart_server)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>osst <Plug>(omnisharp_start_server)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>ossp <Plug>(omnisharp_stop_server)
+augroup END

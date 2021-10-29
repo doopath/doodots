@@ -1,0 +1,18 @@
+[Desktop Entry]
+DefaultProfile=Doopath.profile
+
+[KonsoleWindow]
+ShowMenuBarByDefault=false
+
+[MainWindow]
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAAAAA6QAAAP8AAAABAAAAAQAAAAIAAAACPwAAAAA
+ToolBarsMovable=Disabled
+XWAYLAND0 Height 1080=795
+XWAYLAND0 Width 1920=1242
+XWAYLAND0 XPosition=64
+XWAYLAND0 YPosition=132
+eDP Height 1080=1020
+eDP Width 1920=1884
+eDP XPosition=18
+eDP YPosition=42

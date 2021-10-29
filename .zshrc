@@ -3,10 +3,8 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/doopath/.oh-my-zsh"
-export PATH="$PATH:/home/doopath/bin"
-
-# Pythonpaht settings
-export PYTHONPATH=${PYTHONPATH}:${HOME}/Files/coderpool/Python/doondler:${HOME}/Files/coderpool/Python/doondler/test
+export DOTNET_ROOT=$HOME/dotnet
+export PATH="$PATH:/snap/bin:$DOTNET_ROOT:$HOME/FileComparer"
 
 autoload -U promptinit; promptinit
 
@@ -15,7 +13,7 @@ autoload -U promptinit; promptinit
 # prompt pure
 # test -r "~/.dir_colors" && eval $(dircolors ~/.dir_colors)
 
-ZSH_THEME="minimal"
+ZSH_THEME="oxide"
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -38,14 +36,18 @@ export ARCHFLAGS="-arch x86_64"
 # Git
 alias gcl="git clone"
 alias grao="git remote add origin"
-alias gc="git commit"
+alias gcm="git commit"
 alias gp="git push"
 alias ga="git add"
 alias gr="git revert"
 
+# Workflow
+alias toDoocutor="cd $HOME/Files/Coderpool/CSharp/Doocutor"
+alias pubDoocutor="toDoocutor && dotnet publish Doocutor/Doocutor.csproj -c Release -o Publish -r linux-x64"
+alias Doocutor="Doocutor -m dynamic -c DoocutorDark"
+alias xedit="nvim $HOME/.xmonad/xmonad.hs"
+
 # Sustem
 alias sizehere="du -sh ./*"
-
-# Apps
-alias pycharm="sh /opt/pycharm-community-2020.3.2/bin/pycharm.sh"
+alias fcr="$HOME/FileComparer/fc"
 
