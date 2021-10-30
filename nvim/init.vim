@@ -35,10 +35,11 @@ Plug 'vim-airline/vim-airline'
 
 " Very useful things ==>
 Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-surround'
-Plug 'preservim/nerdcommenter'
+Plug 'tpope/vim-surround' " include word/line in '[{< and other stuff like those
+Plug 'preservim/nerdcommenter' " <Leader>-c-l to comment; <Leader>-c-u to uncomment
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim' " fuzzy-finder
+Plug 'APZelos/blamer.nvim' " A plugin like the 'git-lense' for vscode
 
 " CSharp and FSharp support
 Plug 'OmniSharp/omnisharp-vim'
@@ -47,7 +48,7 @@ Plug 'ionide/Ionide-vim', { 'do':  'make fsautocomplete' }
 " Haskell and Cabal support
 Plug 'neovimhaskell/haskell-vim'
 
-" Git plugin for vim
+
 Plug 'airblade/vim-gitgutter'
 
 " Appearance plugins ==>
@@ -151,6 +152,7 @@ map <silent> <C-a> :set ft=nasm<CR>
 
 " NerdTree enable
 map <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeWinSize=40
 
 " Let vim-easymotion to do its things by ,+s hotkey
 map <Leader> <Plug>(easymotion-prefix)
@@ -159,7 +161,6 @@ map <Leader> <Plug>(easymotion-prefix)
 " You can switch between buffers by comma + buffer number
 nnoremap <Leader>l :ls<CR>
 nnoremap <Leader>f :bn<CR>
-nnoremap <Leader>g :e#<CR>
 nnoremap <Leader>1 :1b<CR>
 nnoremap <Leader>2 :2b<CR>
 nnoremap <Leader>3 :3b<CR>
@@ -174,6 +175,11 @@ nnoremap <Leader>0 :10b<CR>
 " FZF settings
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>c :Files<CR>
+
+" Blamer settings
+let g:blamer_enabled = 1
+" Or, if you don't want to view blamer stuff everytime:
+" nnoremap <Leader>g :BlamerToggle<CR>
 
 " Mappings to move between plited windows by WinMove function
 map <silent> <C-h> :call WinMove('h')<CR>
