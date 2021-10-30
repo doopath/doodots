@@ -106,9 +106,11 @@ myStartupHook = do
     -- spawnOnce "conky -c $HOME/.config/conky/xmonad/doom-one-01.conkyrc"
     spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x282c34  --height 22 &"
     spawnOnce "/usr/bin/emacs --daemon &"
+    spawnOnce "telegram-desktop -startintray"
+    spawnOnce "dunst &"
+    spawnOnce "battery_charge_notifier.py -d 5000 -l 15 -f 98"
     -- set background image
     spawn "nitrogen $HOME/Files/img/NightFireWallpaper.png --restore"
-    spawnOnce "telegram-desktop -startintray"
     -- set normal cursor (pointer)
     spawn "xsetroot -cursor_name left_ptr"
     -- set touchpad sensivity
@@ -474,7 +476,7 @@ myKeys =
         , ("<XF86Mail>", runOrRaise "thunderbird" (resource =? "thunderbird"))
         , ("<XF86Calculator>", runOrRaise "qalculate-gtk" (resource =? "qalculate-gtk"))
         , ("<XF86Eject>", spawn "toggleeject")
-        , ("<Print>", spawn "kazam -a")
+        , ("<Print>", spawn "maim -s $HOME/Pictures/Screenshot_from_$(date '+%Y_%m_%d-%H_%M_%S').png")
         , ("<F9>", spawn "light -U 10")
         , ("<F10>", spawn "light -A 10")
         ]
