@@ -6,12 +6,12 @@
 """
 
 import os
-import sys
-import psutil
-import argparse
 from time import sleep
+import argparse
+import psutil
 
-get_bat = lambda: psutil.sensors_battery()
+
+get_bat = psutil.sensors_battery
 get_percent = lambda: round(get_bat().percent)
 is_plugged = lambda: get_bat().power_plugged
 
@@ -31,24 +31,25 @@ def notify(title: str, message:str):
 
 
 def wait_low_charge(delay: int, low: int):
-    while level := get_percent() > low and not is_plugged():
+    while get_percent() > low and not is_plugged():
         sleep(delay)
 
-    if get_percent() > low and is_plugged():
-        return
+    if not is_plugged() and get_percent() <= low:
+        notify(f"'The battery at low percentage ({get_percent()}%)'",
+               "'Plug in your device otherwise it will be forcely powered off.'")
 
-    notify(f"'The battery at low percentage ({level}%)'",
-           "'Plug in your device otherwise it will be forcely powered off.'")
+        while not is_plugged():
+            sleep(delay)
 
 
-def wait_fully_charged(delay: int, full: int):
+def wait_full_charge(delay: int, full: int):
     while get_percent() < full and is_plugged():
         sleep(delay)
 
-    if get_percent() < full and not is_plugged():
-        return
-
-    notify("'The battery is fully charged'", "'You can unplug your device'")
+    if is_plugged():
+        notify("'The battery is fully charged'", "'You can unplug your device'")
+        while is_plugged():
+            sleep(delay)
 
 
 def wait_plugged(delay: int):
@@ -63,13 +64,9 @@ def wait_unplugged(delay: int):
 
 def run_once(delay:int=5000, low:int=10, full:int=100):
     if is_plugged():
-        wait_fully_charged(delay, full)
-        wait_unplugged(delay)
-        print("unplugged")
+        wait_full_charge(delay, full)
     else:
         wait_low_charge(delay, low)
-        wait_plugged(delay)
-        print("plugged")
 
 
 def main():
