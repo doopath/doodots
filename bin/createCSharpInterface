@@ -1,0 +1,15 @@
+#! /usr/bin/bash
+
+FILE=$1
+INTERFACE_NAME=${FILE##*/}
+INTERFACE_NAME=${INTERFACE_NAME%%.*}
+CONTENT=""
+CONTENT+=$'namespace \n'
+CONTENT+=$'{\n'
+CONTENT+=$'    public interface '$INTERFACE_NAME$'\n'
+CONTENT+=$'    {\n'
+CONTENT+=$'        \n'
+CONTENT+=$'    }\n'
+CONTENT+=$'}'
+
+echo "$CONTENT" >> $FILE

@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/home/doopath/Files/Coderpool/Python/PasswordManager/tests'
+let g:netrw_dirhist_1='/home/doopath/.config/ranger/colorschemes'
+let g:netrw_dirhist_0='/home/doopath/tmp/PasswordManager/password-manager-1.2/debian/source'
+let g:netrw_dirhist_9='/home/doopath/tmp/PasswordManager/password-manager-1.2/debian'
+let g:netrw_dirhist_8='/home/doopath/tmp/PasswordManager/PasswordManager.egg-info'
+let g:netrw_dirhist_7='/home/doopath/Files/Settings'
+let g:netrw_dirhist_6='/home/doopath/.local/bin'
+let g:netrw_dirhist_5='/home/doopath/Files/Coderpool/CSharp/Doocutor/Tests/Core'
+let g:netrw_dirhist_4='/home/doopath/Files/Coderpool/CSharp/Doocutor/DynamicEditor/Core'
+let g:netrw_dirhist_3='/home/doopath/Files/Coderpool/CSharp/Doocutor/DynamicEditor'
