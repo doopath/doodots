@@ -1,7 +1,7 @@
 # Here you can find my dotfiles
 
-[no screenshot](https://raw.githubusercontent.com/doopath/doodots/master/screenshots/Screenshot_1.png)
-[no screenshot](https://raw.githubusercontent.com/doopath/doodots/master/screenshots/Screenshot_2.png)
+![no screenshot](https://raw.githubusercontent.com/doopath/doodots/master/screenshots/Screenshot_1.png)
+![no screenshot](https://raw.githubusercontent.com/doopath/doodots/master/screenshots/Screenshot_2.png)
 
 ## Location
 Everything from *home/* should be located in your home directory **($HOME)**.
