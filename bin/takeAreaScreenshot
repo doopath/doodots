@@ -1,8 +1,0 @@
-#! /usr/bin/bash
-
-DATE="$(date '+_%Y_%m_%d-%H_%M-%S')"
-FILE_NAME="Screenshot_from$DATE"
-NAME="$HOME/Pictures/$FILE_NAME"
-
-maim -s $NAME
-dunstify -t 7000 -u normal "$FILE_NAME was saved"
