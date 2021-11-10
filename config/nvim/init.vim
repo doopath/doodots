@@ -1,10 +1,9 @@
 lua require("plugins")
-lua require("cmp_settings")
+" lua require("cmp_settings")
 lua require("plugin_settings")
 lua require("omnisharp_settings")
 lua require("settings")
 lua require("keymaps")
-
 
 "" coc.nvim settings
 inoremap <silent><expr> <TAB>

@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:JetBrains Mono Nerd Font 8
+font pango:JetBrainsMono Nerd Font 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -23,9 +23,9 @@ font pango:JetBrains Mono Nerd Font 8
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id dunst
-exec --no-startup-id "nitrogen /home/doopath/Files/img/ArchDraculaWallpaper.png --restore"
+exec --no-startup-id "feh --bg-fill /home/doopath/fls/img/SomeMinimalisticWallpaper.png"
 exec --no-startup-id "telegram-desktop -startintray"
-exec --no-startup-id "~/.local/bin/scripts/battery_charge_notifier -l 15 -f 98 -t 5 >> /tmp/battery_charge_notifier.log"
+exec --no-startup-id "/home/doopath/.local/bin/scripts/battery_charge_notifier -l 15 -f 98 -d 5 >> /tmp/battery_charge_notifier.log &"
 
 # Compositor
 exec_always --no-startup-id "picom --config ~/.config/picom/picom.conf"
@@ -41,7 +41,7 @@ exec_always "xset r rate 300"
 exec_always "xinput set-prop 'Logitech G102 LIGHTSYNC Gaming Mouse' 'Coordinate Transformation Matrix' 1 0 0 0 1 0 0 0 5"
 
 # Touchpad speed
-exec_always "xinput set-prop 'ELAN1200:00 04F3:309F Touchpad' 'Coordinate Transformation Matrix' 2 0 0 0 2 0 0 0 1.5"
+exec_always "xinput set-prop 'ELAN1200:00 04F3:309F Touchpad' 'Coordinate Transformation Matrix' 2 0 0 0 2 0 0 0 1.6"
 
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
@@ -49,7 +49,7 @@ exec_always "xinput set-prop 'ELAN1200:00 04F3:309F Touchpad' 'Coordinate Transf
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -70,7 +70,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
 floating_modifier $mod
 
 # Apps bindings
-bindsym $mod+Shift+s exec "i3lock -i /home/doopath/Files/img/arch_wallpaper.png"
+bindsym $mod+Shift+s exec "i3lock -i /home/doopath/fls/img/KeyboardsWallpaper.png"
 bindsym $mod+Shift+Return exec --no-startup-id "rofi -show run"
 bindsym $mod+Return exec kitty
 bindsym $mod+b exec brave
@@ -78,6 +78,8 @@ bindsym $mod+n exec "kitty ranger"
 bindsym $mod+m exec "kitty htop"
 bindsym Print exec "bash $HOME/.local/bin/scripts/takeAreaScreenshot"
 bindsym $mod+c exec "gcolor3"
+bindsym $mod+Control+p exec "mocp -P"
+bindsym $mod+Control+u exec "mocp -U"
 
 # kill focused window
 bindsym $mod+q kill
@@ -185,15 +187,15 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-default_border pixel 3
-default_floating_border pixel 3
+default_border pixel 2
+default_floating_border pixel 2
 
+# Only if you use i3-gaps
 gaps inner 8
 gaps outer 4
 
-# #bd93f9
 # class                 border  backgr. text    indicator child_border
-client.focused          #bd93f9 #bd93f9 #282a37 #bd93f9   #bd93f9
+client.focused          #88C0D0 #88C0D0 #282a37 #88C0D0   #88C0D0
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #3b4252 #3b4252 #888888 #3b4252   #3b4252
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
@@ -237,7 +239,7 @@ for_window [class="Nautilus"] floating enable
 for_window [class="Gcolor3"] floating enable
 for_window [class="Nm-connection-editor"] floating enable
 for_window [class="Feh"] floating enable
-for_window [class="Discord"] floating enable
+for_window [class="discord"] floating enable
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status

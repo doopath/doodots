@@ -27,7 +27,7 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround' -- include word/line in '[{< and other stuff like those
 Plug 'preservim/nerdcommenter' -- <Leader>-c-l to comment; <Leader>-c-u to uncomment
-Plug 'junegunn/fzf.vim' -- fuzzy-finder
+Plug 'junegunn/fzf.vim'
 Plug 'APZelos/blamer.nvim' -- A plugin like the 'git-lense' for vscode
 Plug 'ap/vim-css-color'
 Plug 'airblade/vim-gitgutter'
@@ -63,14 +63,14 @@ Plug 'sainnhe/sonokai'
 Plug 'neoclide/coc.nvim'
 Plug 'SirVer/ultisnips' -- Powerful snippets
 Plug 'honza/vim-snippets' -- Also, improves your expirience
-Plug 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
-Plug 'hrsh7th/nvim-cmp' -- Autocompletion plugin
-Plug 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
-Plug 'L3MON4D3/LuaSnip' -- Snippets plugin
+-- Plug 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
+-- Plug 'hrsh7th/nvim-cmp' -- Autocompletion plugin
+-- Plug 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
+-- Plug 'hrsh7th/cmp-buffer'
+-- Plug 'hrsh7th/cmp-path'
+-- Plug 'hrsh7th/cmp-cmdline'
+-- Plug 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
+-- Plug 'L3MON4D3/LuaSnip' -- Snippets plugin
 
 -- Live server inside the code-editor like VSCode live-server
 Plug 'turbio/bracey.vim'

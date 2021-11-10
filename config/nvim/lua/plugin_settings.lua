@@ -2,7 +2,7 @@ local g = vim.g
 
 require('lualine').setup {
     options = {
-        theme = 'dracula'
+        theme = 'nord'
     },
     tabline = {
         lualine_a = {'buffers'},
@@ -59,7 +59,6 @@ require'nvim-tree'.setup {
     }
   }
 }
-
 
 -- Ultisnips mapping
 g.UltiSnipsExpandTrigger='<c-.>'

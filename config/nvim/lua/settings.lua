@@ -1,6 +1,7 @@
 local cmd = vim.cmd
 local opt = vim.opt
 local g = vim.g
+local s = vim.s
 
 local tab_width = 4
 
@@ -20,7 +21,7 @@ cmd [[
     syntax on
     highlight Normal ctermbg=None
     filetype plugin on
-    colorscheme dracula
+    colorscheme nord
     hi statusline guibg=#FFFFFFFF guifg=#D8DEE9
     hi Normal guibg=NONE ctermbg=NONE
 
@@ -29,10 +30,9 @@ cmd [[
     set noswapfile
 ]]
 
-
 opt.termguicolors = true
+opt.guifont = 'JetBrainsMono Nerd Font:h7'
 opt.laststatus = 2
-opt.guifont = 'JetBrainsMono Nerd Font'
 opt.autoindent = true
 opt.clipboard = opt.clipboard + 'unnamedplus'
 
@@ -54,7 +54,6 @@ opt.fileencodings = 'utf-8,cp1251'
 -- Edge color scheme settings
 g.edge_style = 'neon'
 g.edge_enable_italic = 1
-
 
 -- Maps
 g.mapleader=',' -- Too useful (if you dont want to get carpal tunnel)

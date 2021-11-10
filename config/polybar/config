@@ -19,21 +19,23 @@
 [colors]
 ;background = ${xrdb:color0:#222}
 background = #00
-background-alt = #bd93f9
+background-alt = #B48EAD
 ;foreground = ${xrdb:color7:#222}
-underline = #ff79c6
-green = #50fa7b
-purple = #bd93f9
-red = #ff5555
+underline = #B48EAD
+green = #A3BE8C
+purple = #B48EAD
+red = #BF616A
 yellow = #f1fa8c
-dark = #282a36
+blue = #81A1C1
+dark = #2E3440
 dark_gray = #44475a
-foreground = #f8f8f2
+foreground = #ECEFF4
 foreground-alt = #555
-active_ws = #282a36
-primary = #282a36
-secondary = #e60053
-alert = #bd2c40
+active_ws = #44475a
+primary = #44475a
+orange = #D08770
+secondary = #D08770
+alert = #EBCB8B
 
 [bar/doobar]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -49,7 +51,6 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 line-size = 3
-line-color = #f00
 
 border-size = 0
 border-color = #00000000
@@ -66,7 +67,7 @@ font-2 = Ubuntu:style=Bold:pixelsize=10;4
 
 modules-left = i3 title
 modules-center =
-modules-right = temperature sep backlight sep volume sep xkeyboard sep memory sep cpu sep wlan sep animated_battery bat_plugged sep date sep2
+modules-right = temperature sep backlight sep pulseaudio sep xkeyboard sep memory sep cpu sep wlan sep animated_battery bat_plugged sep date sep2
 
 tray-position = right
 tray-padding = 2
@@ -78,7 +79,7 @@ cursor-scroll = ns-resize
 [module/sep]
 type = custom/text
 content = |
-content-foreground = ${colors.purple}
+content-foreground = ${colors.yellow}
 content-padding = 1
 
 
@@ -114,12 +115,12 @@ format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
 
-ws-icon-0 = 1; 
-ws-icon-1 = 2; 
-ws-icon-2 = 3; 
-ws-icon-3 = 4; 
-ws-icon-4 = 5; 
-ws-icon-5 = 6; 
+ws-icon-0 = 1;1:   
+ws-icon-1 = 2;2:  
+ws-icon-2 = 3;3:  
+ws-icon-3 = 4;4:  
+ws-icon-4 = 5;5:  
+ws-icon-5 = 6;6:  
 ws-icon-6 = 7;7: 
 ws-icon-7 = 8;8: 
 ws-icon-8 = 9;9: 
@@ -129,18 +130,18 @@ ws-icon-9 = 10;10: 
 
 label-mode-padding = 2
 label-mode-foreground = #000
-label-mode-background = ${colors.dark}
+label-mode-background = ${colors.background}
 
 ; focused = Active workspace on focused monitor
 label-focused = " %icon% "
-label-focused-foreground = ${colors.dark}
-label-focused-background = ${colors.purple}
-label-focused-underline = ${colors.purple}
+label-focused-foreground = ${colors.foreground}
+label-focused-background = ${colors.blue}
+label-focused-underline = ${colors.blue}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = " %icon% "
-label-unfocused-background = ${colors.dark}
+label-unfocused-background = ${colors.background}
 label-unfocused-foreground = ${colors.foreground}
 label-unfocused-padding = 2
 
@@ -219,20 +220,24 @@ format-full-prefix-foreground = ${colors.foreground}
 ramp-capacity-0 = "  "
 ramp-capacity-1 = "  "
 ramp-capacity-2 = "  "
-ramp-capacity-3 = "  "
+ramp-capacity-3 = "  "
+ramp-capacity-4 = "  "
+
 ramp-capacity-foreground = ${colors.foreground}
 
 animation-charging-0 = "  "
 animation-charging-1 = "  "
 animation-charging-2 = "  "
-animation-charging-3 = "  "
+animation-charging-3 = "  "
+animation-charging-4 = "  "
 animation-charging-foreground = ${colors.foreground}
 animation-charging-framerate = 750
 
 animation-discharging-0 = "  "
-animation-discharging-1 = "  "
-animation-discharging-2 = "  "
-animation-discharging-3 = "  "
+animation-discharging-1 = "  "
+animation-discharging-2 = "  "
+animation-discharging-3 = "  "
+animation-discharging-4 = "  "
 animation-discharging-foreground = ${colors.foreground}
 animation-discharging-framerate = 750
 
@@ -259,6 +264,23 @@ format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
 
 label = %date% %time%
+
+
+[module/pulseaudio]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_12_00.3.analog-stereo
+use-ui-max = true
+interval = 5
+format-volume = <ramp-volume>  <label-volume>
+
+label-muted =   muted
+label-muted-foreground = ${colors.orange}
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+click-right = "kitty mocp"
 
 
 [module/temperature]

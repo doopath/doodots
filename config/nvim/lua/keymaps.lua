@@ -19,11 +19,15 @@ map('n', '<Leader>8', ':8b<CR>', default_opts)
 map('n', '<Leader>9', ':9b<CR>', default_opts)
 map('n', '<Leader>0', ':10b<CR>', default_opts)
 
+map('n', '<Leader>n', ':noh<CR>', default_opts)
+
 
 -- FZF settings
-map('n', '<Leader>b', ':Buffers<CR>', default_opts)
-map('n', '<Leader>F', ':Files<CR>', default_opts)
-
+map('n', '<Leader>b', ":Buffers<CR>", default_opts)
+map('n', '<Leader>l', ":BLines<CR>", default_opts)
+map('n', '<Leader>L', ":Lines<CR>", default_opts)
+map('n', '<Leader>t', ":Tabs<CR>", default_opts)
+map('n', '<Leader>F', ":Files<CR>", default_opts)
 
 -- Enable <Escape> in the terminal mode (:term)
 map('t', '<Esc>', '<C-\\><C-n>', {noremap = true, silent = false})
@@ -36,10 +40,10 @@ map('n', '<C-k>', ':call MoveWindow(\'k\')<CR>', default_opts)
 map('n', '<C-l>', ':call MoveWindow(\'l\')<CR>', default_opts)
 
 -- Resize split windows
-map('n', '<C-p>', ':vertical resize +5<CR>', default_opts)
-map('n', '<C-u>', ':vertical resize -5<CR>', default_opts)
-map('n', '<C-o>', ':resize +5<CR>', default_opts)
-map('n', '<C-i>', ':resize -5<CR>', default_opts)
+map('n', '<C-Right>', ':vertical resize +5<CR>', default_opts)
+map('n', '<C-Left>', ':vertical resize -5<CR>', default_opts)
+map('n', '<C-Up>', ':resize +5<CR>', default_opts)
+map('n', '<C-Down>', ':resize -5<CR>', default_opts)
 
 
 -- Move between windows or create new ones
