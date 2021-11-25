@@ -1,11 +1,9 @@
-  -- Base
 import XMonad
 import System.Directory
 import System.IO (hPutStrLn)
 import System.Exit (exitSuccess)
 import qualified XMonad.StackSet as W
 
-    -- Actions
 import XMonad.Actions.CopyWindow (kill1)
 import XMonad.Actions.CycleWS (Direction1D(..), moveTo, shiftTo, WSType(..), nextScreen, prevScreen)
 import XMonad.Actions.GridSelect
@@ -16,7 +14,6 @@ import XMonad.Actions.WindowGo (runOrRaise)
 import XMonad.Actions.WithAll (sinkAll, killAll)
 import qualified XMonad.Actions.Search as S
 
-    -- Data
 import Data.Char (isSpace, toUpper)
 import Data.Maybe (fromJust)
 import Data.Monoid
@@ -24,7 +21,6 @@ import Data.Maybe (isJust)
 import Data.Tree
 import qualified Data.Map as M
 
-    -- Hooks
 import XMonad.Hooks.DynamicLog (dynamicLogWithPP, wrap, xmobarPP, xmobarColor, shorten, PP(..))
 import XMonad.Hooks.EwmhDesktops  -- for some fullscreen events, also for xcomposite in obs.
 import XMonad.Hooks.ManageDocks (avoidStruts, docksEventHook, manageDocks, ToggleStruts(..))
@@ -33,7 +29,6 @@ import XMonad.Hooks.ServerMode
 import XMonad.Hooks.SetWMName
 import XMonad.Hooks.WorkspaceHistory
 
-    -- Layouts
 import XMonad.Layout.Accordion
 import XMonad.Layout.GridVariants (Grid(Grid))
 import XMonad.Layout.SimplestFloat
@@ -42,7 +37,6 @@ import XMonad.Layout.ResizableTile
 import XMonad.Layout.Tabbed
 import XMonad.Layout.ThreeColumns
 
-    -- Layouts modifiers
 import XMonad.Layout.LayoutModifier
 import XMonad.Layout.LimitWindows (limitWindows, increaseLimit, decreaseLimit)
 import XMonad.Layout.Magnifier
@@ -59,7 +53,6 @@ import XMonad.Layout.WindowNavigation
 import qualified XMonad.Layout.ToggleLayouts as T (toggleLayouts, ToggleLayout(Toggle))
 import qualified XMonad.Layout.MultiToggle as MT (Toggle(..))
 
-   -- Utilities
 import XMonad.Util.Dmenu
 import XMonad.Util.EZConfig (additionalKeysP)
 import XMonad.Util.NamedScratchpad
@@ -67,58 +60,63 @@ import XMonad.Util.Run (runProcessWithInput, safeSpawn, spawnPipe)
 import XMonad.Util.SpawnOnce
 
 myFont :: String
-myFont = "xft:JetBrainsMono Nerd Font Mono:regular:size=9:antialias=true:hinting=true"
+myFont = "xft:JetBrainsMono Nerd Font:regular:size=9:antialias=true:hinting=true"
 
 myModMask :: KeyMask
-myModMask = mod4Mask        -- Sets modkey to super/windows key
+myModMask = mod4Mask
 
 myTerminal :: String
-myTerminal = "konsole"    -- Sets default terminal
+myTerminal = "kitty"
 
 myBrowser :: String
-myBrowser = "firefox "  -- Sets qutebrowser as browser
-
-myEmacs :: String
-myEmacs = "emacsclient -c -a 'emacs' "  -- Makes emacs keybindings easier to type
+myBrowser = "brave "
 
 myEditor :: String
-myEditor = "emacsclient -c -a 'emacs' "  -- Sets emacs as editor
--- myEditor = myTerminal ++ " -e vim "    -- Sets vim as editor
+myEditor = "kitty nvim"
 
 myBorderWidth :: Dimension
-myBorderWidth = 2           -- Sets border width for windows
+myBorderWidth = 2
 
 myNormColor :: String
-myNormColor   = "#313846"   -- Border color of normal windows
+myNormColor   = "#313846"
 
 myFocusColor :: String
-myFocusColor  = "#c590e7"   -- Border color of focused windows
+myFocusColor  = "#c590e7"
 
 windowCount :: X (Maybe String)
 windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
 
 myStartupHook :: X ()
 myStartupHook = do
-    -- spawnOnce "lxsession &"
-    spawnOnce "picom &"
+    spawnOnce "picom --config ~/.config/picom/picom.conf &"
     spawnOnce "nm-applet &"
     spawnOnce "volumeicon &"
+
     -- spawnOnce "conky -c $HOME/.config/conky/xmonad/doom-one-01.conkyrc"
     spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x282c34  --height 22 &"
-    spawnOnce "/usr/bin/emacs --daemon &"
+
     spawnOnce "telegram-desktop -startintray"
     spawnOnce "dunst &"
-    spawnOnce "battery_charge_notifier.py -d 5000 -l 15 -f 98"
+    spawnOnce "~/.local/bin/scripts/battery_charge_notifier.py -d 5 -l 15 -f 98"
+
     -- set background image
-    spawn "nitrogen $HOME/Files/img/NightFireWallpaper.png --restore"
+    spawn "feh --bg-fill /home/doopath/fls/img/SomeMinimalisticWallpaper.png"
+
     -- set normal cursor (pointer)
     spawn "xsetroot -cursor_name left_ptr"
+
     -- set touchpad sensivity
-    spawn "xinput set-prop 'ELAN1200:00 04F3:309F Touchpad' 'Coordinate Transformation Matrix' 3 0 0 0 3 0 0 0 1.75"
+    spawn "xinput set-prop 'ELAN1200:00 04F3:309F Touchpad' 'Coordinate Transformation Matrix' 2 0 0 0 2 0 0 0 1.6"
+
     -- set mouse sensivity
-    spawn "xinput set-prop 'Logitech G102 LIGHTSYNC Gaming Mouse' 'Coordinate Transformation Matrix' 1 0 0 0 1 0 0 0 3"
+    spawn "xinput set-prop 'Logitech G102 LIGHTSYNC Gaming Mouse' 'Coordinate Transformation Matrix' 1 0 0 0 1 0 0 0 5"
+
     -- set keyboard layouts (en_US, ru_RU), and others
-    spawn "zsh /home/doopath/.local/bin/setKeyboardLayout"
+    spawn "xset r rate 300"
+    spawn "setxkbmap -option 'grp:alt_shift_toggle' -option caps:swapescape -layout us,ru"
+
+
+
 
 myColorizer :: Window -> Bool -> X (String, String)
 myColorizer = colorRangeFromClassName
@@ -351,11 +349,10 @@ myKeys =
         [ ("M-C-r", spawn "xmonad --recompile")  -- Recompiles xmonad
         , ("M-S-r", spawn "xmonad --restart")    -- Restarts xmonad
         , ("M-S-q", io exitSuccess)              -- Quits xmonad
-        , ("M-S-/", spawn "~/.xmonad/xmonad_keys.sh")
-        , ("M-S-p", spawn "bash $HOME/.local/bin/takeAreaScreenshot")
+        , ("M-S-p", spawn "bash $HOME/.local/bin/scripts/takeAreaScreenshot")
         , ("M-S-s", spawn "slock")
-        , ("M-C-p", spawn "kcolorchooser")
-        , ("M-n", spawn "nautilus")
+        , ("M-C-p", spawn "gcolor3")
+        , ("M-n", spawn "kitty ranger")
 
     -- KB_GROUP Run Prompt
         , ("M-S-<Return>", spawn "rofi -show run") -- Dmenu

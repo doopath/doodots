@@ -23,7 +23,7 @@ font pango:JetBrainsMono Nerd Font 8
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id dunst
-exec --no-startup-id "feh --bg-fill /home/doopath/fls/img/SomeMinimalisticWallpaper.png"
+exec --no-startup-id "feh --bg-fill /home/doopath/fls/img/KeyboardsWallpaper.png"
 exec --no-startup-id "telegram-desktop -startintray"
 exec --no-startup-id "/home/doopath/.local/bin/scripts/battery_charge_notifier -l 15 -f 98 -d 5 >> /tmp/battery_charge_notifier.log &"
 
@@ -72,10 +72,10 @@ floating_modifier $mod
 # Apps bindings
 bindsym $mod+Shift+s exec "i3lock -i /home/doopath/fls/img/KeyboardsWallpaper.png"
 bindsym $mod+Shift+Return exec --no-startup-id "rofi -show run"
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec alacritty
 bindsym $mod+b exec brave
-bindsym $mod+n exec "kitty ranger"
-bindsym $mod+m exec "kitty htop"
+bindsym $mod+n exec "alacritty -e ranger"
+bindsym $mod+m exec "alacritty -e htop"
 bindsym Print exec "bash $HOME/.local/bin/scripts/takeAreaScreenshot"
 bindsym $mod+c exec "gcolor3"
 bindsym $mod+Control+p exec "mocp -P"
@@ -187,15 +187,15 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-default_border pixel 2
-default_floating_border pixel 2
+default_border pixel 3
+default_floating_border pixel 3
 
 # Only if you use i3-gaps
 gaps inner 8
 gaps outer 4
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #88C0D0 #88C0D0 #282a37 #88C0D0   #88C0D0
+client.focused          #5c6bc0 #5c6bc0 #fafafa #5c6bc0   #5c6bc0
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #3b4252 #3b4252 #888888 #3b4252   #3b4252
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
@@ -204,26 +204,17 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #2e3440
 
 
-# resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym j resize shrink width 5 px or 5 ppt
         bindsym k resize grow height 5 px or 5 ppt
         bindsym l resize shrink height 5 px or 5 ppt
         bindsym semicolon resize grow width 5 px or 5 ppt
 
-        # same bindings, but for the arrow keys
         bindsym Left resize shrink width 5 px or 5 ppt
         bindsym Down resize grow height 5 px or 5 ppt
         bindsym Up resize shrink height 5 px or 5 ppt
         bindsym Right resize grow width 5 px or 5 ppt
 
-        # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
