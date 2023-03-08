@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =6
-let g:netrw_dirhist_6='/home/doopath/.local/bin'
-let g:netrw_dirhist_5='/home/doopath/Files/Coderpool/CSharp/Doocutor/Tests/Core'
-let g:netrw_dirhist_4='/home/doopath/Files/Coderpool/CSharp/Doocutor/DynamicEditor/Core'
-let g:netrw_dirhist_3='/home/doopath/Files/Coderpool/CSharp/Doocutor/DynamicEditor'
-let g:netrw_dirhist_2='/home/doopath/Files/Coderpool/CSharp/Doocutor'
-let g:netrw_dirhist_1='/home/doopath/.local/share/JetBrains/Toolbox/apps/Rider/ch-0'

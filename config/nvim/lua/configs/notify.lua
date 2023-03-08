@@ -1,0 +1,6 @@
+-- local notify = require "notify"
+-- notify.setup({
+--   background_colour = "#000000",
+--   astronvim.user_plugin_opts("plugins.notify", { stages = "fade" })
+-- })
+-- vim.notify = notify

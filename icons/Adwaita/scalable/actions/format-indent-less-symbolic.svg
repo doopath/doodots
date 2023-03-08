@@ -1,1 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><g color="#bebebe" fill="#474747"><path d="M7 3H2v2h5zm1 4H2v2h6zm6 4H7v2h7z" style="marker:none" overflow="visible"/><path d="M14 3v1c0 .257-.13.528-.312.719L12.406 6l1.282 1.281c.182.19.312.462.312.719v1h-1c-.31 0-.552-.09-.75-.281L9.594 6l2.656-2.719c.198-.19.44-.281.75-.281z" style="line-height:normal;-inkscape-font-specification:'Bitstream Vera Sans';text-indent:0;text-align:start;text-decoration-line:none;text-transform:none;marker:none" font-weight="400" font-family="Bitstream Vera Sans" overflow="visible"/></g></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg height="16px" viewBox="0 0 16 16" width="16px" xmlns="http://www.w3.org/2000/svg">
+    <path d="m 15 1 v 2 h -14 v -2 z m 0 4 v 2 h -8 v -2 z m -11.292969 0 v 0.007812 c -0.265625 -0.003906 -0.519531 0.101563 -0.707031 0.285157 l -2 2 c -0.390625 0.390625 -0.390625 1.023437 0 1.414062 l 2 2 c 0.1875 0.183594 0.441406 0.289063 0.707031 0.289063 v 0.003906 h 1 v -6 z m 11.292969 4 v 2 h -8 v -2 z m -3 4 v 2 h -11 v -2 z m 0 0" fill="#2e3436"/>
+</svg>

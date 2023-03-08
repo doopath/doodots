@@ -17,7 +17,7 @@ framerate = 60
 
 # Manual sensitivity in %. If autosens is enabled, this will only be the initial value.
 # 200 means double height. Accepts only non-negative values.
-sensitivity = 100
+sensitivity = 30
 
 # The number of bars (0-200). 0 sets it to auto (fill up console).
 # Bars' width and space between bars in number of characters.
@@ -53,8 +53,8 @@ sensitivity = 100
 # For alsa 'source' will be the capture device.
 # For fifo 'source' will be the path to fifo-file.
 # For shmem 'source' will be /squeezelite-AA:BB:CC:DD:EE:FF where 'AA:BB:CC:DD:EE:FF' will be squeezelite's MAC address
-; method = pulse
-; source = auto
+ method = pulse
+ source = auto
 
 ; method = alsa
 ; source = hw:Loopback,1
@@ -80,23 +80,23 @@ sensitivity = 100
 # 'raw' is an 8 or 16 bit (configurable via the 'bit_format' option) data
 # stream of the bar heights that can be used to send to other applications.
 # 'raw' defaults to 200 bars, which can be adjusted in the 'bars' option above.
-; method = ncurses
+ method = ncurses
 
 # Visual channels. Can be 'stereo' or 'mono'.
 # 'stereo' mirrors both channels with low frequencies in center.
 # 'mono' outputs left to right lowest to highest frequencies.
 # 'mono_option' set mono to either take input from 'left', 'right' or 'average'.
-; channels = stereo
-; mono_option = average
+ channels = stereo
+ mono_option = average
 
 # Raw output target. A fifo will be created if target does not exist.
-; raw_target = /dev/stdout
+ raw_target = /dev/stdout
 
 # Raw data format. Can be 'binary' or 'ascii'.
-; data_format = binary
+ data_format = binary
 
 # Binary bit format, can be '8bit' (0-255) or '16bit' (0-65530).
-; bit_format = 16bit
+ bit_format = 16bit
 
 # Ascii max value. In 'ascii' mode range will run from 0 to value specified here
 ; ascii_max_range = 1000
